@@ -1,0 +1,223 @@
+.TH Jason Tevnan
+.SH NAME
+jason tevnan \- cloud and database-wrangler with a penchant for automation and sous vide cooking
+.SH SYNOPSIS
+jason [--save SQL|NOSQL] [--administrate] [--automate] 
+[--monitor] [--virtualize] [--lead] [--think]
+.SH DESCRIPTION
+I have been around and seen some stuff, but am the first to admit it when i am out of my league. I pursue issues with a passion (as any good DBA would) and don't settle for it just works. I love learning new technologies and wrapping my head around new paradigms, ideally while enjoying dark-roast coffee at my standing desk.
+.SH OPTIONS
+.TP
+.BR \-\-save=\fISQL\fR
+.RS
+.B MySQL
+is my true love. 
+ - Verifying database workloads, identifying slow queries, tuning innodb settings, while providing an HA database can be alot of fun
+ - Scaled Runtastic's core database starting at 1M users to 99M users and the ability to handle 100k QPS
+ - Partitioning a table or verifying the innodb engine status, I love it
+.RE
+
+.RS
+.B Oracle 
+is where i cut my teeth on. 
+ - Had to learn on highly performant, always on database systems
+ - Learned what a missing index can do, which queries to avoid and how to find the meaning of all those v$ views
+ - The experience I gathered understanding B-Tree index look-ups, helped me to understand look-ups across all database systems
+.RE
+
+.RS
+.B PostgreSQL
+is interesting
+ - Used it with all its geo-spatial features for OpenStreetMap
+ - Automated replicating to another database with slony before 9.0 came out with log shipping
+ - Housekeeping functions took some getting used to
+.RE
+
+.TP
+.BR \-\-save=\fINOSQL\fR
+.RS
+.B MongoDB
+is a challenge to wrap my head around. Schema-less?! 
+ - Attended admin training courses to understand: schema-less can also be a curse since it is incredibly challenging when defining a scalable, future proof indexing concept
+ - Enjoy shard key definitions for collections to ensure the fewest scatter-gather queries, Optimizing storage read ahead settings and playing with Wiredtiger cache options
+ - Have lots of experience running the robust HA setup which is very easy to run from an operations standpoint
+.RE
+
+.RS
+.B Cassandra
+forgives a lot.
+ - I find the replication approach and ring setup amazingly robust with anisotropic read repairs and the ability to stream and receive data while accepting queries
+ - Scaled our cluster from 4 to 8 to 32 and finally to 64 nodes with almost no downtime 
+.RE
+
+.RS
+.B Redis
+and Redis cluster are my nemesis. 
+ - Run instances under normal conditions as well as high load condition
+ - Have found the right balance between ram and IOs to ensure that they can flush to disk
+ - Since Redis is the core of many ruby queueing solutions, I have been forced to face my fears, tuning BGSAVE cycles and finding the optimal fsync to AOF ratios
+.RE
+
+.TP
+.BR \-\-administrate
+.RS
+.B LAMP
+ - traditional stack (e.g. apache2, nginx) 
+ - extended web servers (e.g. trinidad, passenger)
+.RE
+
+.RS
+.B Loadbalancers
+ - Experience debugging performance bottlenecks
+ - Setup instances which handle > 80k rpm
+ - HaProxy, nginx
+.RE
+
+.RS
+.B Golden Oldies
+ - LOTS of experience with the normal Linux stack (e.g. bind, dhcpd, ldap, openvpn, ssh, memcached ...)
+ - After > 15 years experience with all aspects of the os, i still think Linux is the best for servers
+.RE
+
+.RS
+.B Distributed fun
+ - zookeeper
+ - rabbitmq
+ - activemq
+ - all in clusters running at least 3 nodes
+ - very interesting (i.E. challenging) to scale
+.RE
+
+.TP
+.BR \-\-automate
+.RS
+.B Chef 
+ - Apart from coffee, my greatest passion is automation
+ - Try to ensure that all infrastructure code has full test coverage
+ - Test-Kitchen is my friend
+ - While Chef is not the answer to world hunger, an automation tool with its feature set especially regarding testing and auditing is inevitable in today's world of highly fluctuant infrastructure.
+.RE
+
+.TP
+.BR \-\-monitor
+.RS
+.B Nagios3
+ - Wrote and deployed numerous checks
+ - Running an nrpe based deployment with full automation
+ - > 10k checks distributed across 1k servers
+.RE
+
+.RS
+.B Collectd
+ - Wrote and integrated checks for nfs-iostat and mongodb
+ - Running and fully automated with a graphite front end
+ - collecting > 100k metrics an hour
+.RE
+
+.RS
+.B Cacti
+ - Implemented Percona's graphing suite for mysql
+ - collect all core database metrics from connections to innodb flush times
+.RE
+
+.RS
+.B Cloud Services
+  - Very familiar with New Relic, Pingdom, Dynatrace
+.RE
+
+.TP
+.BR \-\-virtialize
+.RS
+.B OpenNebula
+ - Experienced every phase of our growth from 8 hypervisors to 60
+ - Have run opennebula as an EC2 replacement as a native cloud (extensive API) and as a simple server manager
+ - In the process of automating setup and configuration via teraform
+.RE
+
+.RS
+.B KVM
+ - qemu based
+ - NFS and Ceph storage backend
+.RE
+
+.RS
+.B Virtualbox
+ - Our pre-production system ran on vbox for a long time (hard to imagine)
+ - Mainly running older cookbook tests with vbox
+.RE
+
+.RS
+.B LXC
+ - as a plugin for new test-kitchen deployments
+ - Played around a bit LXD
+.RE
+
+.TP
+.BR \-\-think
+.RS
+.B imho 
+ - vim > emacs
+ - zsh > bash
+ - tmux > screen
+.RE
+
+.SH HISTORY
+.TP
+. IP \(bu
+.B Runtastic GmbH (04.2012 - . )
+.RS
+.B Infrastructure Architect
+ - define setup and strategy for each upcoming stack 
+ - ensure scalability of technologies and concepts
+ - setup workflows for automation and deployments
+.RE
+.RS
+.B Head of Operations
+ - Organize small team while fighting to stay ahead of growth
+ - Very challenging for me to lead a team of inexperienced ops and shaping our infrastructure
+.RE
+.RS
+.B Operations Engineer
+ - Nested under the web development team
+ - Start automation
+ - Improve uptime through monitoring and derive future actions
+ - Conceptualize private cloud based on opennebula
+.RE
+
+.IP \(bu
+.B APEX Gaming (04.2010 - 03.2012)
+.RS
+.B Head of Customer Care
+ - Setup ticketing workflow based on ITIL best practices
+ - Created automated master/slave setup with slony for PostgreSQL 8.3/8.4
+ - Spent time training staff in the casino headquarters to be first level support techs
+.RE
+
+.IP \(bu
+.B Knapp Systems Integration (09.2007 - 03.2010)
+.RS
+.B Technical Project Lead
+ - Introduce metric collection to visualize hardware utilization for the customer
+ - Manage customer care projects 
+ - Responsible for everything from planning to doing
+ - Largest project was complete warehouse upgrade to a medium sized 24x7 cosmetic distributed
+ - Organized and held numerous on-site training courses around the world
+.RE
+.RS
+.B Second Level Support Engineer 
+ - Field production problems in a 24x7 environment
+ - Handle issues ranging from PLC (Siemens S7) to tablespace cleanups on a core Oracle instance
+.RE
+.SH SEE ALSO
+.IP \(bu 
+E-mail: jason.tevnan@gmail.com
+.IP \(bu 
+Phone: +43.650.2167444
+.IP \(bu 
+LinkedIn:  https://at.linkedin.com/in/jason-tevnan-5390b4a8
+.IP \(bu 
+IRC: tnosaj on irc.freenode.net
+.SH BUGS
+Prone to flu if left in rain.
+.SH AUTHOR
+Jason Tevnan (jason.tevnan@gmail.com)

@@ -1,0 +1,373 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML><HEAD>
+<title>jason(7) - cloud and database-wrangler - Linux man page</title>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<style type="text/css">
+    body {
+      font-family: monospace;
+      font-size: 12px;
+      color: #222222;
+      margin: 20px 10px 0px 20px;
+      text-align: left;
+    }
+    .manheader {
+      font-family: monospace;
+      font-size: 12px;
+      margin: 10px 0px 0px 0px;
+    }
+    h1 {
+      font-size: 12px;
+      font-weight: bold;
+      margin: 15px 0px 0px 0px;
+    }
+    .subtext {
+      margin: 0px 0px 10px 50px;
+      width: 575px;
+    }
+    .doublesubtext {
+      margin: 0px 0px 10px 70px;
+      width: 525px;
+    }
+    .triplesubtext {
+      margin: 0px 0px 10px 90px;
+      width: 475px;
+    }
+    .bottomcut {
+      margin-bottom: 0px;
+    }
+    a, a.active, a.visited, a.hover {
+      color: #222222;
+      text-decoration: underline;
+    }
+    .footer {
+      margin: 10px 0px 20px 0px;
+      color: #CCCCCC;
+    }
+    .linkfloater {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      padding: 5px;
+      text-align: right;
+      background-color: #222222;
+      color: #FFFFFF;
+    }
+    .linkfloater a:link, .linkfloater a:visited, .linkfloater a:hover {
+      color: #00FF00;
+      text-decoration: underline;
+    }
+  </style>
+</HEAD><BODY>
+<H1>jason(7) - cloud and database-wrangler - Linux man page</H1>
+
+<HR>
+<A NAME="lbAB"></A>
+<H2>NAME</H2>
+
+jason tevnan - cloud and database-wrangler with a penchant for automation and sous vide cooking
+<A NAME="lbAC"> </A>
+<H2>SYNOPSIS</H2>
+
+jason [--save SQL|NOSQL] [--administrate] [--automate] 
+[--monitor] [--virtualize] [--lead] [--think]
+<A NAME="lbAD"></A>
+<H2>DESCRIPTION</H2>
+
+I have been around and seen some stuff, but am the first to admit it when i am out of my league. I pursue issues with a passion (as any good DBA would) and don't settle for it just works. I love learning new technologies and wrapping my head around new paradigms, ideally while enjoying dark-roast coffee at my standing desk.
+<A NAME="lbAE"></A>
+<H2>OPTIONS</H2>
+
+<DL COMPACT>
+<DT><B>--save=</B><I>SQL</I>
+
+<DD>
+<DL COMPACT><DT><DD>
+<B>MySQL</B>
+
+is my true love. 
+<BR> - Verifying database workloads, identifying slow queries, tuning innodb settings, while providing an HA database can be alot of fun
+<BR> - Scaled Runtastic's core database starting at 1M users to 99M users and the ability to handle 100k QPS
+<BR> - Partitioning a table or verifying the innodb engine status, I love it
+</DL>
+
+<P>
+<DL COMPACT><DT><DD>
+<B>Oracle </B>
+
+is where i cut my teeth on. 
+<BR> - Had to learn on highly performant, always on database systems
+<BR> - Learned what a missing index can do, which queries to avoid and how to find the meaning of all those v$ views
+<BR> - The experience I gathered understanding B-Tree index look-ups, helped me to understand look-ups across all database systems
+</DL>
+
+<P>
+<DL COMPACT><DT><DD>
+<B>PostgreSQL</B>
+
+is interesting
+<BR> - Used it with all its geo-spatial features for OpenStreetMap
+<BR> - Automated replicating to another database with slony before 9.0 came out with log shipping
+<BR> - Housekeeping functions took some getting used to
+</DL>
+
+<P>
+<DT><B>--save=</B><I>NOSQL</I>
+
+<DD>
+<DL COMPACT><DT><DD>
+<B>MongoDB</B>
+
+is a challenge to wrap my head around. Schema-less?! 
+<BR> - Attended admin training courses to understand: schema-less can also be a curse since it is incredibly challenging when defining a scalable, future proof indexing concept
+<BR> - Enjoy shard key definitions for collections to ensure the fewest scatter-gather queries, Optimizing storage read ahead settings and playing with Wiredtiger cache options
+<BR> - Have lots of experience running the robust HA setup which is very easy to run from an operations standpoint
+</DL>
+
+<P>
+<DL COMPACT><DT><DD>
+<B>Cassandra</B>
+
+forgives a lot.
+<BR> - I find the replication approach and ring setup amazingly robust with anisotropic read repairs and the ability to stream and receive data while accepting queries
+<BR> - Scaled our cluster from 4 to 8 to 32 and finally to 64 nodes with almost no downtime 
+</DL>
+
+<P>
+<DL COMPACT><DT><DD>
+<B>Redis</B>
+
+and Redis cluster are my nemesis. 
+<BR> - Run instances under normal conditions as well as high load condition
+<BR> - Have found the right balance between ram and IOs to ensure that they can flush to disk
+<BR> - Since Redis is the core of many ruby queueing solutions, I have been forced to face my fears, tuning BGSAVE cycles and finding the optimal fsync to AOF ratios
+</DL>
+
+<P>
+<DT><B>--administrate</B>
+
+<DD>
+<DL COMPACT><DT><DD>
+<B>LAMP</B>
+
+<BR> - traditional stack (e.g. apache2, nginx) 
+<BR> - extended web servers (e.g. trinidad, passenger)
+</DL>
+
+<P>
+<DL COMPACT><DT><DD>
+<B>Loadbalancers</B>
+
+<BR> - Experience debugging performance bottlenecks
+<BR> - Setup instances which handle &gt; 80k rpm
+<BR> - HaProxy, nginx
+</DL>
+
+<P>
+<DL COMPACT><DT><DD>
+<B>Golden Oldies</B>
+
+<BR> - LOTS of experience with the normal Linux stack (e.g. bind, dhcpd, ldap, openvpn, ssh, memcached ...)
+<BR> - After &gt; 15 years experience with all aspects of the os, i still think Linux is the best for servers
+</DL>
+
+<P>
+<DL COMPACT><DT><DD>
+<B>Distributed fun</B>
+
+<BR> - zookeeper
+<BR> - rabbitmq
+<BR> - activemq
+<BR> - all in clusters running at least 3 nodes
+<BR> - very interesting (i.E. challenging) to scale
+</DL>
+
+<P>
+<DT><B>--automate</B>
+
+<DD>
+<DL COMPACT><DT><DD>
+<B>Chef </B>
+
+<BR> - Apart from coffee, my greatest passion is automation
+<BR> - Try to ensure that all infrastructure code has full test coverage
+<BR> - Test-Kitchen is my friend
+<BR> - While Chef is not the answer to world hunger, an automation tool with its feature set especially regarding testing and auditing is inevitable in today's world of highly fluctuant infrastructure.
+</DL>
+
+<P>
+<DT><B>--monitor</B>
+
+<DD>
+<DL COMPACT><DT><DD>
+<B>Nagios3</B>
+
+<BR> - Wrote and deployed numerous checks
+<BR> - Running an nrpe based deployment with full automation
+<BR> - &gt; 10k checks distributed across 1k servers
+</DL>
+
+<P>
+<DL COMPACT><DT><DD>
+<B>Collectd</B>
+
+<BR> - Wrote and integrated checks for nfs-iostat and mongodb
+<BR> - Running and fully automated with a graphite front end
+<BR> - collecting &gt; 100k metrics an hour
+</DL>
+
+<P>
+<DL COMPACT><DT><DD>
+<B>Cacti</B>
+
+<BR> - Implemented Percona's graphing suite for mysql
+<BR> - collect all core database metrics from connections to innodb flush times
+</DL>
+
+<P>
+<DL COMPACT><DT><DD>
+<B>Cloud Services</B>
+
+<BR>  - Very familiar with New Relic, Pingdom, Dynatrace
+</DL>
+
+<P>
+<DT><B>--virtialize</B>
+
+<DD>
+<DL COMPACT><DT><DD>
+<B>OpenNebula</B>
+
+<BR> - Experienced every phase of our growth from 8 hypervisors to 60
+<BR> - Have run opennebula as an EC2 replacement as a native cloud (extensive API) and as a simple server manager
+<BR> - In the process of automating setup and configuration via teraform
+</DL>
+
+<P>
+<DL COMPACT><DT><DD>
+<B>KVM</B>
+
+<BR> - qemu based
+<BR> - NFS and Ceph storage backend
+</DL>
+
+<P>
+<DL COMPACT><DT><DD>
+<B>Virtualbox</B>
+
+<BR> - Our pre-production system ran on vbox for a long time (hard to imagine)
+<BR> - Mainly running older cookbook tests with vbox
+</DL>
+
+<P>
+<DL COMPACT><DT><DD>
+<B>LXC</B>
+
+<BR> - as a plugin for new test-kitchen deployments
+<BR> - Played around a bit LXD
+</DL>
+
+<P>
+<DT><B>--think</B>
+
+<DD>
+<DL COMPACT><DT><DD>
+<B>imho</B>
+<BR> - vim > emacs
+<BR> - zsh > bash
+<BR> - tmux > screen
+</DL>
+
+<P>
+</DL>
+<A NAME="lbAF"> </A>
+<H2>HISTORY</H2>
+
+<DL COMPACT>
+<DT><DT>&bull;<DD>
+<DD>
+<B>Runtastic GmbH (04.2012 - . )</B>
+
+<DL COMPACT><DT><DD>
+<B>Infrastructure Architect</B>
+
+<BR> - define setup and strategy for each upcoming stack 
+<BR> - ensure scalability of technologies and concepts
+<BR> - setup workflows for automation and deployments
+</DL>
+
+<DL COMPACT><DT><DD>
+<B>Head of Operations</B>
+
+<BR> - Organize small team while fighting to stay ahead of growth
+<BR> - Very challenging for me to lead a team of inexperienced ops and shaping our infrastructure
+</DL>
+
+<DL COMPACT><DT><DD>
+<B>Operations Engineer</B>
+
+<BR> - Nested under the web development team
+<BR> - Start automation
+<BR> - Improve uptime through monitoring and derive future actions
+<BR> - Conceptualize private cloud based on opennebula
+</DL>
+
+<P>
+<DT>&bull;<DD>
+<B>APEX Gaming (04.2010 - 03.2012)</B>
+
+<DL COMPACT><DT><DD>
+<B>Head of Customer Care</B>
+
+<BR> - Setup ticketing workflow based on ITIL best practices
+<BR> - Created automated master/slave setup with slony for PostgreSQL 8.3/8.4
+<BR> - Spent time training staff in the casino headquarters to be first level support techs
+</DL>
+
+<P>
+<DT>&bull;<DD>
+<B>Knapp Systems Integration (09.2007 - 03.2010)</B>
+
+<DL COMPACT><DT><DD>
+<B>Technical Project Lead</B>
+
+<BR> - Introduce metric collection to visualize hardware utilization for the customer
+<BR> - Manage customer care projects 
+<BR> - Responsible for everything from planning to doing
+<BR> - Largest project was complete warehouse upgrade to a medium sized 24x7 cosmetic distributed
+<BR> - Organized and held numerous on-site training courses around the world
+</DL>
+
+<DL COMPACT><DT><DD>
+<B>Second Level Support Engineer </B>
+
+<BR> - Field production problems in a 24x7 environment
+<BR> - Handle issues ranging from PLC (Siemens S7) to tablespace cleanups on a core Oracle instance
+</DL>
+
+</DL>
+<A NAME="lbAG"> </A>
+<H2>SEE ALSO</H2>
+
+<DL COMPACT>
+<DT>&bull;<DD>
+E-mail: <A HREF="mailto:jason.tevnan@gmail.com">jason.tevnan@gmail.com</A>
+<DT>&bull;<DD>
+Phone: +43.650.2167444
+<DT>&bull;<DD>
+LinkedIn:  <A HREF="https://at.linkedin.com/in/jason-tevnan-5390b4a8">https://at.linkedin.com/in/jason-tevnan-5390b4a8</A>
+<DT>&bull;<DD>
+IRC: tnosaj on irc.freenode.net
+</DL>
+<A NAME="lbAH"> </A>
+<H2>BUGS</H2>
+
+Prone to flu if left in rain.
+<A NAME="lbAI"> </A>
+<H2>AUTHOR</H2>
+
+Jason Tevnan (<A HREF="mailto:jason.tevnan@gmail.com">jason.tevnan@gmail.com</A>)
+<P>
+
+<HR>
+</BODY>
+</HTML>
