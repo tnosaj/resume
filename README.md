@@ -1,20 +1,20 @@
 # jason(7) - cloud and database-wrangler - Linux man page
 
-[NAME](#NAME)
+[NAME](#name)
 
-[SYNOPSIS](#SYNOPSIS)
+[SYNOPSIS](#synopsis)
 
-[DESCRIPTION](#DESCRIPTION)
+[DESCRIPTION](#description)
 
-[OPTIONS](#OPTIONS)
+[OPTIONS](#options)
 
-[HISTORY](#HISTORY)
+[HISTORY](#history)
 
-[SEE ALSO](#SEE%20ALSO)
+[SEE ALSO](#see-also)
 
-[BUGS](#BUGS)
+[BUGS](#bugs)
 
-[AUTHOR](#AUTHOR)
+[AUTHOR](#author)
 
 ## NAME
 
