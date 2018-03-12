@@ -30,6 +30,8 @@ is where i cut my teeth on.
 is interesting
  - Used it with all its geo-spatial features for OpenStreetMap
  - Automated replicating to another database with slony before 9.0 came out with log shipping
+ - Automated replication and failover with repmgrd
+ - Had lots of fun automating pgbouncer with consul as a HA write endpoint
  - Housekeeping functions took some getting used to
 .RE
 
@@ -84,6 +86,7 @@ and Redis cluster are my nemesis.
  - zookeeper
  - rabbitmq
  - activemq
+ - consul (for service discovery)
  - All in clusters running at least 3 nodes
  - Very interesting (i.E. challenging) to scale
 .RE
@@ -94,7 +97,7 @@ and Redis cluster are my nemesis.
 .B Chef 
  - Apart from coffee, my greatest passion is automation
  - Try to ensure that all infrastructure code has full test coverage
- - Test-Kitchen is my friend
+ - Test-Kitchen, inspec and chefspec are my friends
  - While Chef is not the answer to world hunger, an automation tool with its feature set especially regarding testing and auditing is inevitable in today's world of highly fluctuant infrastructure.
 .RE
 
@@ -120,9 +123,15 @@ and Redis cluster are my nemesis.
  - Collect all core database metrics from connections to innodb flush times
 .RE
 
+.B Prometheus
+ - Alert-manager, recording-rule, exporter - oh my. Very powerful solution with an ever growing community.
+ - Experience with some storage engine and memory shenanigans
+ - Visualization with graphana
+.RE
+
 .RS
 .B Cloud Services
-  - Very familiar with New Relic, Pingdom, Dynatrace
+  - Very familiar with New Relic, Pingdom, Dynatrace, PagerDuty
 .RE
 
 .TP
@@ -152,6 +161,12 @@ and Redis cluster are my nemesis.
  - Played around a bit LXD
 .RE
 
+.RS
+.B Cloud Services
+ - Automate Google Cloud Platform (GCP) and Azure instance deploys with terraform
+ - Experience the joys (its so easy) and pains (why is the db rebooting?) of not controlling your hypervisors
+.RE
+
 .TP
 .BR \-\-think
 .RS
@@ -164,7 +179,19 @@ and Redis cluster are my nemesis.
 .SH HISTORY
 .TP
 . IP \(bu
-.B Runtastic GmbH (04.2012 - . )
+.B GitLab (04.2017 - . )
+.RS
+.B Senior Production Engineer
+ - Memeber of a small fully remote team
+ - Scale gitlab.com (millions of users) using gitlab (typically built for thousands of users) in a cloud environment
+ - Collaborate on developing HA solution for postgres in the gitlab omnibus package
+ - Strove to fully automate environments from terraform to multi-tiered HA stack
+ - Build a backend agnostic solution for secrets in chef
+ - Use chef to automate all-the-things
+.RE
+
+. IP \(bu
+.B Runtastic GmbH (04.2012 - 03.2017 )
 .RS
 .B Infrastructure Architect
  - Define setup and strategy for each upcoming stack 
