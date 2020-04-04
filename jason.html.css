@@ -1,0 +1,55 @@
+    body {
+      background: black;
+      color: #00e500;
+      max-width: 600px;
+      font-family: monospace;
+      font-size: 12px;
+      margin: 20px 10px 0px 20px;
+      text-align: left;
+    }
+    .manheader {
+      font-family: monospace;
+      font-size: 12px;
+      margin: 10px 0px 0px 0px;
+    }
+    h1 {
+      font-size: 12px;
+      font-weight: bold;
+      margin: 15px 0px 0px 0px;
+    }
+    .subtext {
+      margin: 0px 0px 10px 50px;
+      width: 575px;
+    }
+    .doublesubtext {
+      margin: 0px 0px 10px 70px;
+      width: 525px;
+    }
+    .triplesubtext {
+      margin: 0px 0px 10px 90px;
+      width: 475px;
+    }
+    .bottomcut {
+      margin-bottom: 0px;
+    }
+    a, a.active, a.visited, a.hover {
+      color: lightgreen;
+      text-decoration: underline;
+    }
+    .footer {
+      margin: 10px 0px 20px 0px;
+      color: #CCCCCC;
+    }
+    .linkfloater {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      padding: 5px;
+      text-align: right;
+      background-color: #222222;
+      color: #FFFFFF;
+    }
+    .linkfloater a:link, .linkfloater a:visited, .linkfloater a:hover {
+      color: #00FF00;
+      text-decoration: underline;
+    }
