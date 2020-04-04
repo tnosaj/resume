@@ -17,7 +17,9 @@
   <![endif]-->
 </head>
 <body>
-<h1 id="jason7---cloud-and-database-wrangler---linux-man-page">jason(7) - cloud and database-wrangler - Linux man page</h1>
+<header id="title-block-header">
+<h1 class="title">jason(7) | cloud and database-wrangler - Linux man page</h1>
+</header>
 <p><a href="#name">NAME</a></p>
 <p><a href="#synopsis">SYNOPSIS</a></p>
 <p><a href="#description">DESCRIPTION</a></p>
@@ -26,28 +28,28 @@
 <p><a href="#see-also">SEE ALSO</a></p>
 <p><a href="#bugs">BUGS</a></p>
 <p><a href="#author">AUTHOR</a></p>
-<h2 id="name">NAME</h2>
+<h1 id="name">NAME</h1>
 <p>jason tevnan - cloud and database-wrangler with a penchant for automation and sous vide cooking</p>
-<h2 id="synopsis">SYNOPSIS</h2>
+<h1 id="synopsis">SYNOPSIS</h1>
 <p>jason [--store SQL|NOSQL] [--administrate] [--automate] [--monitor] [--virtualize] [--containerize] [--think]</p>
-<h2 id="description">DESCRIPTION</h2>
+<h1 id="description">DESCRIPTION</h1>
 <p>I have been around and seen some stuff, but am the first to admit it when i am out of my league. I pursue issues with a passion (as any good DBA would) and don’t settle for it just works. I love learning new technologies and wrapping my head around new paradigms, ideally while enjoying dark-roast coffee at my standing desk.</p>
-<h2 id="options">OPTIONS</h2>
-<h3 id="storesql">--store=<em>SQL</em></h3>
-<h4 id="mysql-is-my-true-love.">MySQL is my true love.</h4>
+<h1 id="options">OPTIONS</h1>
+<h2 id="storesql">--store=<em>SQL</em></h2>
+<h3 id="mysql-is-my-true-love.">MySQL is my true love.</h3>
 <ul>
 <li>Verifying database workloads, identifying slow queries, tuning innodb settings, while providing an HA database can be a lot of fun</li>
 <li>Scaled Runtastic’s core database starting at 1M users to 99M users and the ability to handle 100k QPS</li>
 <li>Partitioning a table or verifying the innodb engine status, I love it</li>
 <li>Experience finding and debugging DBaaS provider based issues (CloudSQL)</li>
 </ul>
-<h4 id="oracle-is-what-i-cut-my-teeth-on.">Oracle is what i cut my teeth on.</h4>
+<h3 id="oracle-is-what-i-cut-my-teeth-on.">Oracle is what i cut my teeth on.</h3>
 <ul>
 <li>Had to learn on highly performant, always-on database systems</li>
 <li>Learned what a missing index can do, which queries to avoid and how to find the meaning of all those v$ views</li>
 <li>The experience I gathered understanding B-Tree index look-ups, helped me to understand look-ups across all database systems</li>
 </ul>
-<h4 id="postgresql-is-interesting">PostgreSQL is interesting</h4>
+<h3 id="postgresql-is-interesting">PostgreSQL is interesting</h3>
 <ul>
 <li>Used it with all its geo-spatial features for OpenStreetMap</li>
 <li>Automated replicating to another database with slony before 9.0 came out with log shipping</li>
@@ -55,50 +57,50 @@
 <li>Had lots of fun automating pgbouncer with consul as a HA write endpoint</li>
 <li>Housekeeping functions took some getting used to</li>
 </ul>
-<h3 id="storenosql">--store=<em>NOSQL</em></h3>
-<h4 id="mongodb-is-a-challenge-to-wrap-my-head-around.-schema-less">MongoDB is a challenge to wrap my head around. Schema-less?!</h4>
+<h2 id="storenosql">--store=<em>NOSQL</em></h2>
+<h3 id="mongodb-is-a-challenge-to-wrap-my-head-around.-schema-less">MongoDB is a challenge to wrap my head around. Schema-less?!</h3>
 <ul>
 <li>Attended admin training courses to understand: schema-less can also be a curse since it is incredibly challenging when defining a scalable, future proof indexing concept</li>
 <li>Enjoy shard key definitions for collections to ensure the fewest scatter-gather queries, Optimizing storage read ahead settings and playing with Wiredtiger cache options</li>
 <li>Have lots of experience running the robust HA setup which is very easy to run from an operations standpoint</li>
 </ul>
-<h4 id="cassandra-forgives-a-lot.">Cassandra forgives a lot.</h4>
+<h3 id="cassandra-forgives-a-lot.">Cassandra forgives a lot.</h3>
 <ul>
 <li>I find the replication approach and ring setup amazingly robust with anisotropic read repairs and the ability to stream and receive data while accepting queries</li>
 <li>Scaled Runtastic’s cluster from 4 to 8 to 32 and finally to 64 nodes with almost no downtime</li>
 </ul>
-<h4 id="redis-and-redis-cluster-are-my-nemesis.">Redis and Redis cluster are my nemesis.</h4>
+<h3 id="redis-and-redis-cluster-are-my-nemesis.">Redis and Redis cluster are my nemesis.</h3>
 <ul>
 <li>Run instances under normal conditions as well as high load condition<br />
 </li>
 <li>Have found the right balance between ram and IOs to ensure that they can flush to disk</li>
 <li>Since Redis is the core of many ruby queueing solutions, I have been forced to face my fears, tuning BGSAVE cycles and finding the optimal fsync to AOF ratios</li>
 </ul>
-<h4 id="couchdb-eventually-consistent-fun">CouchDB eventually consistent fun</h4>
+<h3 id="couchdb-eventually-consistent-fun">CouchDB eventually consistent fun</h3>
 <ul>
 <li>Was thrown into cold water with multiple clusters running at high load</li>
 <li>When building the prometheus exporter for a CouchDBaaS provider, learned about many of the internal stats and their meanings.</li>
 <li>Translated that knowledge into practical experience by building Kubernetes powered scale-out deployments to load test, while starting an ever growing comprehensive cluster administration documentation.</li>
 </ul>
-<h3 id="administrate">--administrate</h3>
+<h2 id="administrate">--administrate</h2>
 <p>(run, play, break, repeate)</p>
-<h4 id="lamp">LAMP</h4>
+<h3 id="lamp">LAMP</h3>
 <ul>
 <li>Traditional stack (e.g. apache2, nginx)</li>
 <li>Extended web servers (e.g. trinidad, passenger)</li>
 </ul>
-<h4 id="loadbalancers">Loadbalancers</h4>
+<h3 id="loadbalancers">Loadbalancers</h3>
 <ul>
 <li>Experience debugging performance bottlenecks</li>
 <li>Setup instances which handle &gt; 80k rpm</li>
 <li>HaProxy, nginx</li>
 </ul>
-<h4 id="golden-oldies">Golden Oldies</h4>
+<h3 id="golden-oldies">Golden Oldies</h3>
 <ul>
 <li>LOTS of experience with the normal Linux stack (e.g. bind, dhcpd, ldap, openvpn, ssh, memcached ...)</li>
 <li>After &gt; 15 years experience with all aspects of the os, i still think Linux is the best for servers</li>
 </ul>
-<h4 id="distributed-fun">Distributed fun</h4>
+<h3 id="distributed-fun">Distributed fun</h3>
 <ul>
 <li>zookeeper</li>
 <li>rabbitmq</li>
@@ -107,50 +109,50 @@
 <li>All in clusters running at least 3 nodes</li>
 <li>Very interesting (i.E. challenging) to scale</li>
 </ul>
-<h4 id="gitlab">GitLab</h4>
+<h3 id="gitlab">GitLab</h3>
 <ul>
 <li>Run at scale (gitlab.com) as well as company wide implementations.</li>
 <li>Experience with the joys and pains of CI implementation and administration.</li>
 </ul>
-<h3 id="automate">--automate</h3>
+<h2 id="automate">--automate</h2>
 <p>(Automation, testing and auditing is inevitable in today’s world of highly fluctuant infrastructure)</p>
-<h4 id="chef">Chef</h4>
+<h3 id="chef">Chef</h3>
 <ul>
 <li>Wrote and deployed cookbooks for every aspect of Runtastic's infrastructure</li>
 <li>Try to ensure that all infrastructure code has full test coverage</li>
 <li>Test-Kitchen, inspec and chefspec are my friends</li>
 </ul>
-<h4 id="ansible">Ansible</h4>
+<h3 id="ansible">Ansible</h3>
 <ul>
 <li>Wrote and deployed roles to automate cache layer deployments</li>
 <li>Discovered the love/hate relationship in the python's jinja2</li>
 </ul>
-<h4 id="terraform">Terraform</h4>
+<h3 id="terraform">Terraform</h3>
 <ul>
 <li>Compiled modules to simplify complex deployments</li>
 <li>Wrote a provider to interface with OpenNebula</li>
 <li>Used to deploy all aspects of Cabify's non application layer infrastructure</li>
 </ul>
-<h3 id="monitor">--monitor</h3>
+<h2 id="monitor">--monitor</h2>
 <p>(No observability, means not knowing anything)</p>
-<h4 id="nagios3">Nagios3</h4>
+<h3 id="nagios3">Nagios3</h3>
 <ul>
 <li>Wrote and deployed numerous checks</li>
 <li>Running an nrpe based deployment with full automation</li>
 <li>&gt; 10k checks distributed across 1k servers</li>
 </ul>
-<h4 id="collectd">Collectd</h4>
+<h3 id="collectd">Collectd</h3>
 <ul>
 <li>Wrote and integrated checks for nfs-iostat and mongodb</li>
 <li>Running and fully automated with a graphite front end</li>
 <li>Collecting &gt; 100k metrics an hour</li>
 </ul>
-<h4 id="cacti">Cacti</h4>
+<h3 id="cacti">Cacti</h3>
 <ul>
 <li>Implemented Percona’s graphing suite for mysql</li>
 <li>Collect all core database metrics from connections to innodb flush times</li>
 </ul>
-<h4 id="prometheus">Prometheus</h4>
+<h3 id="prometheus">Prometheus</h3>
 <ul>
 <li>Alert-manager, recording-rule, exporter - oh my. Very powerful solution with an ever growing community? Count me in.</li>
 <li>Wrote recording/alerting rules with unit tests</li>
@@ -158,68 +160,68 @@
 <li>Visualization with graphana</li>
 <li>Wrote exporters for databases and weather stations</li>
 </ul>
-<h4 id="cloud-services">Cloud Services</h4>
+<h3 id="cloud-services">Cloud Services</h3>
 <ul>
 <li>Very familiar with New Relic, Pingdom, Dynatrace, PagerDuty, VictorOps</li>
 </ul>
-<h3 id="virtualize">--virtualize</h3>
+<h2 id="virtualize">--virtualize</h2>
 <p>(control your destiny - as much as you can)</p>
-<h4 id="opennebula">OpenNebula</h4>
+<h3 id="opennebula">OpenNebula</h3>
 <ul>
 <li>Experienced every phase of growth from 8 hypervisors to 60</li>
 <li>Have run opennebula as an EC2 replacement as a native cloud (extensive API) and as a simple server manager</li>
 <li>In the process of automating setup and configuration via teraform</li>
 </ul>
-<h4 id="kvm">KVM</h4>
+<h3 id="kvm">KVM</h3>
 <ul>
 <li>Qemu based</li>
 <li>NFS and Ceph storage backend</li>
 <li>Currently use it as a minikube virtualizer</li>
 </ul>
-<h4 id="virtualbox">Virtualbox</h4>
+<h3 id="virtualbox">Virtualbox</h3>
 <ul>
 <li>Runtastic’s pre-production system ran on vbox for a long time (hard to imagine)</li>
 <li>Mainly running older cookbook tests with vbox</li>
 </ul>
-<h4 id="cloud-services-1">Cloud Services</h4>
+<h3 id="cloud-services-1">Cloud Services</h3>
 <ul>
 <li>Automate Google Cloud Platform (GCP) and Azure instance deploys with terraform</li>
 <li>Experience the joys (its so easy) and pains (why is the db rebooting?) of not controlling your hypervisors</li>
 </ul>
-<h3 id="containerize">--containerize</h3>
+<h2 id="containerize">--containerize</h2>
 <p>(run it like <a href="https://en.wikipedia.org/wiki/Mike_the_Headless_Chicken">mike</a>)</p>
-<h4 id="docker">Docker</h4>
+<h3 id="docker">Docker</h3>
 <ul>
 <li>Write dockerfiles to encapsulate many applications</li>
 <li>Build typical applications as well as X based, multi-arch, multi-stage ones</li>
 <li>Automated container builds with GitLab CI and BATs</li>
 </ul>
-<h4 id="kubernetes">Kubernetes</h4>
+<h3 id="kubernetes">Kubernetes</h3>
 <ul>
 <li>Wrote many manifests for different applications, ranging from banal to complex</li>
 <li>Run my own cluster on RaspberryPis for all my home needs</li>
 <li>Gave a talk at SFSCon about using Flux to automate manifest deployments: <a href="https://www.sfscon.it/talks/gitops-with-gitlab-terraform/">link</a></li>
 </ul>
-<h4 id="nomad">Nomad</h4>
+<h3 id="nomad">Nomad</h3>
 <ul>
 <li>Experience running complex and simple jobs</li>
 <li>Integrated with other HashiCorp products (Consul, Hashiui)</li>
 </ul>
-<h4 id="lxc">LXC</h4>
+<h3 id="lxc">LXC</h3>
 <ul>
 <li>As a plugin for new test-kitchen deployments</li>
 <li>Played around a bit LXD</li>
 </ul>
-<h3 id="think">--think</h3>
-<h4 id="imho">imho</h4>
+<h2 id="think">--think</h2>
+<h3 id="imho">imho</h3>
 <ul>
 <li>vim &gt; emacs</li>
 <li>zsh &gt; bash</li>
 <li>tmux &gt; screen</li>
 </ul>
-<h2 id="history">HISTORY</h2>
-<h3 id="cabify-05.2018---.">Cabify (05.2018 - .)</h3>
-<h4 id="database-reliability-engineer">Database Reliability Engineer</h4>
+<h1 id="history">HISTORY</h1>
+<h2 id="cabify-05.2018---.">Cabify (05.2018 - .)</h2>
+<h3 id="database-reliability-engineer">Database Reliability Engineer</h3>
 <ul>
 <li>Tasked with automating, managing, running all database related technologies: MySQL (Google Cloudsql), Couchdb (Cloudant), Redis, Memcached, Elasticsearch</li>
 <li>Made fully monitored, highly available database creation self service</li>
@@ -229,8 +231,8 @@
 <li>Support developers in identifying design bottlenecks in query pattern, database design.</li>
 <li>Fully remote</li>
 </ul>
-<h3 id="gitlab-04.2017---04.2018">GitLab (04.2017 - 04.2018)</h3>
-<h4 id="senior-production-engineer">Senior Production Engineer</h4>
+<h2 id="gitlab-04.2017---04.2018">GitLab (04.2017 - 04.2018)</h2>
+<h3 id="senior-production-engineer">Senior Production Engineer</h3>
 <ul>
 <li>Memeber of a small fully remote team</li>
 <li>Scale gitlab.com (millions of users) using GitLab (typically built for thousands of users) in a cloud environment</li>
@@ -239,34 +241,34 @@
 <li>Build a back-end agnostic solution for secrets in chef</li>
 <li>Use chef to automate all-the-things</li>
 </ul>
-<h3 id="runtastic-gmbh-04.2012---03.2017">Runtastic GmbH (04.2012 - 03.2017)</h3>
-<h4 id="infrastructure-architect">Infrastructure Architect</h4>
+<h2 id="runtastic-gmbh-04.2012---03.2017">Runtastic GmbH (04.2012 - 03.2017)</h2>
+<h3 id="infrastructure-architect">Infrastructure Architect</h3>
 <ul>
 <li>Define setup and strategy for each upcoming stack</li>
 <li>Ensure scalability of technologies and concepts</li>
 <li>Setup workflows for automation and deployments</li>
 </ul>
-<h4 id="head-of-operations">Head of Operations</h4>
+<h3 id="head-of-operations">Head of Operations</h3>
 <ul>
 <li>Organize small team while fighting to stay ahead of growth</li>
 <li>Very challenging for me to lead a team of inexperienced ops and shaping our infrastructure</li>
 </ul>
-<h4 id="operations-engineer">Operations Engineer</h4>
+<h3 id="operations-engineer">Operations Engineer</h3>
 <ul>
 <li>Nested under the web development team</li>
 <li>Start automation</li>
 <li>Improve uptime through monitoring and derive future actions</li>
 <li>Conceptualize private cloud based on opennebula</li>
 </ul>
-<h3 id="apex-gaming-04.2010---03.2012">APEX Gaming (04.2010 - 03.2012)</h3>
-<h4 id="head-of-customer-care">Head of Customer Care</h4>
+<h2 id="apex-gaming-04.2010---03.2012">APEX Gaming (04.2010 - 03.2012)</h2>
+<h3 id="head-of-customer-care">Head of Customer Care</h3>
 <ul>
 <li>Setup ticketing workflow based on ITIL best practices</li>
 <li>Created automated master/slave setup with slony for PostgreSQL 8.3/8.4</li>
 <li>Spent time training staff in the casino headquarters to be first level support techs</li>
 </ul>
-<h3 id="knapp-systems-integration-09.2007---03.2010">Knapp Systems Integration (09.2007 - 03.2010)</h3>
-<h4 id="technical-project-lead">Technical Project Lead</h4>
+<h2 id="knapp-systems-integration-09.2007---03.2010">Knapp Systems Integration (09.2007 - 03.2010)</h2>
+<h3 id="technical-project-lead">Technical Project Lead</h3>
 <ul>
 <li>Introduce metric collection to visualize hardware utilization for the customer</li>
 <li>Manage customer care projects</li>
@@ -274,25 +276,25 @@
 <li>Largest project was complete warehouse upgrade to a medium sized 24x7 cosmetic distributed</li>
 <li>Organized and held numerous on-site training courses around the world</li>
 </ul>
-<h4 id="second-level-support-engineer">Second Level Support Engineer</h4>
+<h3 id="second-level-support-engineer">Second Level Support Engineer</h3>
 <ul>
 <li>Field production problems in a 24x7 environment</li>
 <li>Handle issues ranging from PLC (Siemens S7) to tablespace cleanups on a core Oracle instance</li>
 </ul>
-<h3 id="fh-joanneum---university-of-applied-science">FH Joanneum - University of Applied Science</h3>
-<h4 id="bachelor-of-science-in-software-engineering">Bachelor of Science in Software Engineering</h4>
+<h2 id="fh-joanneum---university-of-applied-science">FH Joanneum - University of Applied Science</h2>
+<h3 id="bachelor-of-science-in-software-engineering">Bachelor of Science in Software Engineering</h3>
 <ul>
 <li>Extra-occupational program</li>
 </ul>
-<h2 id="see-also">SEE ALSO</h2>
+<h1 id="see-also">SEE ALSO</h1>
 <ul>
 <li>Email: jason.tevnan@gmail.com</li>
 <li>Phone: +43.650.2167444</li>
 <li>LinkedIn: https://at.linkedin.com/in/jason-tevnan-5390b4a8</li>
 </ul>
-<h2 id="bugs">BUGS</h2>
+<h1 id="bugs">BUGS</h1>
 <p>Prone to flu if left in rain.</p>
-<h2 id="author">AUTHOR</h2>
+<h1 id="author">AUTHOR</h1>
 <p>Jason Tevnan (jason.tevnan@gmail.com)</p>
 </body>
 </html>
