@@ -24,7 +24,7 @@ automation and sous vide cooking
 ## SYNOPSIS
 
 jason \[--store SQL|NOSQL\] \[--administrate\] \[--automate\]
-\[--monitor\] \[--virtualize\] \[--lead\] \[--think\]
+\[--monitor\] \[--virtualize\] \[--containerize\] \[--think\]
 
 ## DESCRIPTION
 
