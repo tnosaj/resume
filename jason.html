@@ -1,65 +1,21 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<HTML><HEAD>
-<title>jason(7) - cloud and database-wrangler - Linux man page</title>
-<meta http-equiv="content-type" content="text/html;charset=utf-8">
-<style type="text/css">
-    body {
-      background: black;
-      color: #00e500;
-      max-width: 600px;
-      font-family: monospace;
-      font-size: 12px;
-      margin: 20px 10px 0px 20px;
-      text-align: left;
-    }
-    .manheader {
-      font-family: monospace;
-      font-size: 12px;
-      margin: 10px 0px 0px 0px;
-    }
-    h1 {
-      font-size: 12px;
-      font-weight: bold;
-      margin: 15px 0px 0px 0px;
-    }
-    .subtext {
-      margin: 0px 0px 10px 50px;
-      width: 575px;
-    }
-    .doublesubtext {
-      margin: 0px 0px 10px 70px;
-      width: 525px;
-    }
-    .triplesubtext {
-      margin: 0px 0px 10px 90px;
-      width: 475px;
-    }
-    .bottomcut {
-      margin-bottom: 0px;
-    }
-    a, a.active, a.visited, a.hover {
-      color: lightgreen;
-      text-decoration: underline;
-    }
-    .footer {
-      margin: 10px 0px 20px 0px;
-      color: #CCCCCC;
-    }
-    .linkfloater {
-      position: absolute;
-      top: 5px;
-      right: 5px;
-      padding: 5px;
-      text-align: right;
-      background-color: #222222;
-      color: #FFFFFF;
-    }
-    .linkfloater a:link, .linkfloater a:visited, .linkfloater a:hover {
-      color: #00FF00;
-      text-decoration: underline;
-    }
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>jason(7) - cloud and database-wrangler - Linux man page</title>
+  <style>
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
   </style>
-</HEAD>
+  <link rel="stylesheet" href="jason.html.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
 <body>
 <h1 id="jason7---cloud-and-database-wrangler---linux-man-page">jason(7) - cloud and database-wrangler - Linux man page</h1>
 <p><a href="#name">NAME</a></p>
@@ -83,8 +39,9 @@
 <li>Verifying database workloads, identifying slow queries, tuning innodb settings, while providing an HA database can be a lot of fun</li>
 <li>Scaled Runtastic’s core database starting at 1M users to 99M users and the ability to handle 100k QPS</li>
 <li>Partitioning a table or verifying the innodb engine status, I love it</li>
+<li>Experience finding and debugging DBaaS provider based issues (CloudSQL)</li>
 </ul>
-<h4 id="oracle-is-where-i-cut-my-teeth-on.">Oracle is where i cut my teeth on.</h4>
+<h4 id="oracle-is-what-i-cut-my-teeth-on.">Oracle is what i cut my teeth on.</h4>
 <ul>
 <li>Had to learn on highly performant, always-on database systems</li>
 <li>Learned what a missing index can do, which queries to avoid and how to find the meaning of all those v$ views</li>
@@ -117,7 +74,14 @@
 <li>Have found the right balance between ram and IOs to ensure that they can flush to disk</li>
 <li>Since Redis is the core of many ruby queueing solutions, I have been forced to face my fears, tuning BGSAVE cycles and finding the optimal fsync to AOF ratios</li>
 </ul>
+<h4 id="couchdb-eventually-consistent-fun">CouchDB eventually consistent fun</h4>
+<ul>
+<li>Was thrown into cold water with multiple clusters running at high load</li>
+<li>When building the prometheus exporter for a CouchDBaaS provider, learned about many of the internal stats and their meanings.</li>
+<li>Translated that knowledge into practical experience by building Kubernetes powered scale-out deployments to load test, while starting an ever growing comprehensive cluster administration documentation.</li>
+</ul>
 <h3 id="administrate">--administrate</h3>
+<p>(run, play, break, repeate)</p>
 <h4 id="lamp">LAMP</h4>
 <ul>
 <li>Traditional stack (e.g. apache2, nginx)</li>
@@ -143,15 +107,32 @@
 <li>All in clusters running at least 3 nodes</li>
 <li>Very interesting (i.E. challenging) to scale</li>
 </ul>
+<h4 id="gitlab">GitLab</h4>
+<ul>
+<li>Run at scale (gitlab.com) as well as company wide implementations.</li>
+<li>Experience with the joys and pains of CI implementation and administration.</li>
+</ul>
 <h3 id="automate">--automate</h3>
+<p>(Automation, testing and auditing is inevitable in today’s world of highly fluctuant infrastructure)</p>
 <h4 id="chef">Chef</h4>
 <ul>
-<li>Apart from coffee, my greatest passion is automation</li>
+<li>Wrote and deployed cookbooks for every aspect of Runtastic's infrastructure</li>
 <li>Try to ensure that all infrastructure code has full test coverage</li>
 <li>Test-Kitchen, inspec and chefspec are my friends</li>
-<li>While Chef is not the answer to world hunger, an automation tool with its feature set especially regarding testing and auditing is inevitable in today’s world of highly fluctuant infrastructure.</li>
+</ul>
+<h4 id="ansible">Ansible</h4>
+<ul>
+<li>Wrote and deployed roles to automate cache layer deployments</li>
+<li>Discovered the love/hate relationship in the python's jinja2</li>
+</ul>
+<h4 id="terraform">Terraform</h4>
+<ul>
+<li>Compiled modules to simplify complex deployments</li>
+<li>Wrote a provider to interface with OpenNebula</li>
+<li>Used to deploy all aspects of Cabify's non application layer infrastructure</li>
 </ul>
 <h3 id="monitor">--monitor</h3>
+<p>(No observability, means not knowing anything)</p>
 <h4 id="nagios3">Nagios3</h4>
 <ul>
 <li>Wrote and deployed numerous checks</li>
@@ -171,15 +152,18 @@
 </ul>
 <h4 id="prometheus">Prometheus</h4>
 <ul>
-<li>Alert-manager, recording-rule, exporter - oh my. Very powerful solution with an ever growing community.</li>
+<li>Alert-manager, recording-rule, exporter - oh my. Very powerful solution with an ever growing community? Count me in.</li>
+<li>Wrote recording/alerting rules with unit tests</li>
 <li>Experience with some storage engine and memory shenanigans</li>
 <li>Visualization with graphana</li>
+<li>Wrote exporters for databases and weather stations</li>
 </ul>
 <h4 id="cloud-services">Cloud Services</h4>
 <ul>
-<li>Very familiar with New Relic, Pingdom, Dynatrace, PagerDuty</li>
+<li>Very familiar with New Relic, Pingdom, Dynatrace, PagerDuty, VictorOps</li>
 </ul>
 <h3 id="virtualize">--virtualize</h3>
+<p>(control your destiny - as much as you can)</p>
 <h4 id="opennebula">OpenNebula</h4>
 <ul>
 <li>Experienced every phase of growth from 8 hypervisors to 60</li>
@@ -190,21 +174,41 @@
 <ul>
 <li>Qemu based</li>
 <li>NFS and Ceph storage backend</li>
+<li>Currently use it as a minikube virtualizer</li>
 </ul>
 <h4 id="virtualbox">Virtualbox</h4>
 <ul>
 <li>Runtastic’s pre-production system ran on vbox for a long time (hard to imagine)</li>
 <li>Mainly running older cookbook tests with vbox</li>
 </ul>
-<h4 id="lxc">LXC</h4>
-<ul>
-<li>As a plugin for new test-kitchen deployments</li>
-<li>Played around a bit LXD</li>
-</ul>
 <h4 id="cloud-services-1">Cloud Services</h4>
 <ul>
 <li>Automate Google Cloud Platform (GCP) and Azure instance deploys with terraform</li>
 <li>Experience the joys (its so easy) and pains (why is the db rebooting?) of not controlling your hypervisors</li>
+</ul>
+<h3 id="containerize">--containerize</h3>
+<p>(run it like <a href="https://en.wikipedia.org/wiki/Mike_the_Headless_Chicken">mike</a>)</p>
+<h4 id="docker">Docker</h4>
+<ul>
+<li>Write dockerfiles to encapsulate many applications</li>
+<li>Build typical applications as well as X based, multi-arch, multi-stage ones</li>
+<li>Automated container builds with GitLab CI and BATs</li>
+</ul>
+<h4 id="kubernetes">Kubernetes</h4>
+<ul>
+<li>Wrote many manifests for different applications, ranging from banal to complex</li>
+<li>Run my own cluster on RaspberryPis for all my home needs</li>
+<li>Gave a talk at SFSCon about using Flux to automate manifest deployments: <a href="https://www.sfscon.it/talks/gitops-with-gitlab-terraform/">link</a></li>
+</ul>
+<h4 id="nomad">Nomad</h4>
+<ul>
+<li>Experience running complex and simple jobs</li>
+<li>Integrated with other HashiCorp products (Consul, Hashiui)</li>
+</ul>
+<h4 id="lxc">LXC</h4>
+<ul>
+<li>As a plugin for new test-kitchen deployments</li>
+<li>Played around a bit LXD</li>
 </ul>
 <h3 id="think">--think</h3>
 <h4 id="imho">imho</h4>
@@ -214,7 +218,18 @@
 <li>tmux &gt; screen</li>
 </ul>
 <h2 id="history">HISTORY</h2>
-<h3 id="gitlab-04.2017---.">GitLab (04.2017 - .)</h3>
+<h3 id="cabify-05.2018---.">Cabify (05.2018 - .)</h3>
+<h4 id="database-reliability-engineer">Database Reliability Engineer</h4>
+<ul>
+<li>Tasked with automating, managing, running all database related technologies: MySQL (Google Cloudsql), Couchdb (Cloudant), Redis, Memcached, Elasticsearch</li>
+<li>Made fully monitored, highly available database creation self service</li>
+<li>Build exporters for missing observability in DBaaS platform</li>
+<li>Automate no-downtime sql based CI powered schema changes</li>
+<li>Continually document and assist developers in making persistence decisions</li>
+<li>Support developers in identifying design bottlenecks in query pattern, database design.</li>
+<li>Fully remote</li>
+</ul>
+<h3 id="gitlab-04.2017---04.2018">GitLab (04.2017 - 04.2018)</h3>
 <h4 id="senior-production-engineer">Senior Production Engineer</h4>
 <ul>
 <li>Memeber of a small fully remote team</li>
@@ -280,4 +295,4 @@
 <h2 id="author">AUTHOR</h2>
 <p>Jason Tevnan (jason.tevnan@gmail.com)</p>
 </body>
-</HTML>
+</html>
