@@ -44,8 +44,9 @@ settings, while providing an HA database can be a lot of fun
 - Scaled Runtastic’s core database starting at 1M users to 99M users and
 the ability to handle 100k QPS
 - Partitioning a table or verifying the innodb engine status, I love it
+- Experience finding and debugging DBaaS provider based issues (CloudSQL)
 
-#### Oracle is where i cut my teeth on.
+#### Oracle is what i cut my teeth on.
 - Had to learn on highly performant, always-on database systems
 - Learned what a missing index can do, which queries to avoid and how to
 find the meaning of all those v\$ views
@@ -88,7 +89,16 @@ can flush to disk
 forced to face my fears, tuning BGSAVE cycles and finding the optimal
 fsync to AOF ratios
 
+#### CouchDB eventually consistent fun
+- Was thrown into cold water with multiple clusters running at high load
+- When building the prometheus exporter for a CouchDBaaS provider, 
+learned about many of the internal stats and their meanings.
+- Translated that knowledge into practical experience by building
+Kubernetes powered scale-out deployments to load test, while starting
+an ever growing comprehensive cluster administration documentation.
+
 ### --administrate
+(run, play, break, repeate)
 
 #### LAMP
 - Traditional stack (e.g. apache2, nginx)
@@ -113,17 +123,33 @@ think Linux is the best for servers
 - All in clusters running at least 3 nodes
 - Very interesting (i.E. challenging) to scale
 
+#### GitLab
+- Run at scale (gitlab.com) as well as company wide implementations.
+- Experience with the joys and pains of CI implementation and 
+administration.
+
 ### --automate
+(Automation, testing and auditing is inevitable in today’s world 
+of highly fluctuant infrastructure)
 
 #### Chef
-- Apart from coffee, my greatest passion is automation
+- Wrote and deployed cookbooks for every aspect of Runtastic's 
+infrastructure
 - Try to ensure that all infrastructure code has full test coverage
 - Test-Kitchen, inspec and chefspec are my friends
-- While Chef is not the answer to world hunger, an automation tool with
-its feature set especially regarding testing and auditing is inevitable
-in today’s world of highly fluctuant infrastructure.
+
+#### Ansible
+- Wrote and deployed roles to automate cache layer deployments
+- Discovered the love/hate relationship in the python's jinja2
+
+#### Terraform
+- Compiled modules to simplify complex deployments
+- Wrote a provider to interface with OpenNebula
+- Used to deploy all aspects of Cabify's non application layer 
+infrastructure
 
 ### --monitor
+(No observability, means not knowing anything)
 
 #### Nagios3
 - Wrote and deployed numerous checks
@@ -142,14 +168,17 @@ times
 
 #### Prometheus
 - Alert-manager, recording-rule, exporter - oh my. Very powerful
-solution with an ever growing community.
+solution with an ever growing community? Count me in.
+- Wrote recording/alerting rules with unit tests
 - Experience with some storage engine and memory shenanigans
 - Visualization with graphana
+- Wrote exporters for databases and weather stations
 
 #### Cloud Services
-- Very familiar with New Relic, Pingdom, Dynatrace, PagerDuty
+- Very familiar with New Relic, Pingdom, Dynatrace, PagerDuty, VictorOps
 
 ### --virtualize
+(control your destiny - as much as you can)
 
 #### OpenNebula
 - Experienced every phase of growth from 8 hypervisors to 60
@@ -160,21 +189,41 @@ API) and as a simple server manager
 #### KVM
 - Qemu based
 - NFS and Ceph storage backend
+- Currently use it as a minikube virtualizer 
 
 #### Virtualbox
 - Runtastic’s pre-production system ran on vbox for a long time (hard to
 imagine)
 - Mainly running older cookbook tests with vbox
 
-#### LXC
-- As a plugin for new test-kitchen deployments
-- Played around a bit LXD
-
 #### Cloud Services
 - Automate Google Cloud Platform (GCP) and Azure instance deploys with
 terraform
 - Experience the joys (its so easy) and pains (why is the db rebooting?)
 of not controlling your hypervisors
+
+### --containerize
+(run it like [mike](https://en.wikipedia.org/wiki/Mike_the_Headless_Chicken))
+
+#### Docker
+- Write dockerfiles to encapsulate many applications
+- Build typical applications as well as X based, multi-arch, multi-stage ones
+- Automated container builds with GitLab CI and BATs
+
+#### Kubernetes
+- Wrote many manifests for different applications, ranging from banal to
+complex
+- Run my own cluster on RaspberryPis for all my home needs
+- Gave a talk at SFSCon about using Flux to automate manifest deployments:
+[link](https://www.sfscon.it/talks/gitops-with-gitlab-terraform/)
+
+#### Nomad
+- Experience running complex and simple jobs
+- Integrated with other HashiCorp products (Consul, Hashiui)
+
+#### LXC
+- As a plugin for new test-kitchen deployments
+- Played around a bit LXD
 
 ### --think
 
@@ -185,7 +234,21 @@ of not controlling your hypervisors
 
 ## HISTORY
 
-### GitLab (04.2017 - .)
+### Cabify (05.2018 - .)
+
+#### Database Reliability Engineer
+- Tasked with automating, managing, running all database related technologies:
+MySQL (Google Cloudsql), Couchdb (Cloudant), Redis, Memcached, Elasticsearch
+- Made fully monitored, highly available database creation self service
+- Build exporters for missing observability in DBaaS platform
+- Automate no-downtime  sql based CI powered schema changes
+- Continually document and assist developers in making persistence decisions
+- Support developers in identifying design bottlenecks in query pattern, database 
+design.
+- Fully remote
+
+
+### GitLab (04.2017 - 04.2018)
 
 #### Senior Production Engineer
 - Memeber of a small fully remote team
