@@ -82,8 +82,8 @@ while accepting queries
 with almost no downtime
 
 ### Redis and Redis cluster are my nemesis.
-- Run instances under normal conditions as well as high load condition\
-- Have found the right balance between ram and IOs to ensure that they
+- Run instances under normal conditions as well as high load condition
+- Have found the right balance between RAM and IOs to ensure that they
 can flush to disk
 - Since Redis is the core of many ruby queueing solutions, I have been
 forced to face my fears, tuning BGSAVE cycles and finding the optimal
