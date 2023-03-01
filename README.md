@@ -24,13 +24,15 @@ automation and sous vide cooking
 # SYNOPSIS
 
 jason \[--store SQL|NOSQL\] \[--administrate\] \[--automate\]
-\[--monitor\] \[--virtualize\] \[--containerize\] \[--think\]
+\[--monitor\] \[--virtualize\] \[--containerize\] \[--script\] 
+\[--think\]
 
 # DESCRIPTION
 
-I have been around and seen some stuff, but am the first to admit it
-when i am out of my league. I pursue issues with a passion (as any good
-DBA would) and don’t settle for it just works. I love learning new
+I worked in a variety of environments, sometimes outside of my comfort-zone 
+where I have been forced to learn and run technologies in production 
+at the same time. I pursue issues with a passion (as any good
+DBRE/SRE would) and don’t settle for it just works. I love learning new
 technologies and wrapping my head around new paradigms, ideally while
 enjoying dark-roast coffee at my standing desk.
 
@@ -39,12 +41,26 @@ enjoying dark-roast coffee at my standing desk.
 ## --store=*SQL*
 
 ### MySQL is my true love.
-- Verifying database workloads, identifying slow queries, tuning innodb
+- Verifying database workloads, identifying schema bottlenecks, tuning innodb
 settings, while providing an HA database can be a lot of fun
 - Scaled Runtastic’s core database starting at 1M users to 99M users and
 the ability to handle 100k QPS
-- Partitioning a table or verifying the innodb engine status, I love it
-- Experience finding and debugging DBaaS provider based issues (CloudSQL)
+- Migrated 90+ microservice DBs from Cloudsql to RDS with 7 seconds of downtime
+- Partitioning a table or verifying the innodb engine status are things i consider fun
+- Experience finding and debugging DBaaS provider based issues while gathering
+all the metrics possible
+
+### PostgreSQL is different but fun
+- Used it with all its geo-spatial features for OpenStreetMap
+- Automated replicating to another database with slony before 9.0 came
+out with log shipping
+- Automated replication and fail-over with repmgrd/patroni
+- Had lots of fun automating pgbouncer with consul as a HA write
+endpoint
+- Have come to embrace MVCC and the pros and cons that it brings
+- Have solidified my understanding of the pg_% tables and the plethora 
+of information they provide
+- Love (and sometimes hate) the pg_stat_Statements extension
 
 ### Oracle is what i cut my teeth on.
 - Had to learn on highly performant, always-on database systems
@@ -53,18 +69,15 @@ find the meaning of all those v\$ views
 - The experience I gathered understanding B-Tree index look-ups, helped
 me to understand look-ups across all database systems
 
-### PostgreSQL is interesting
-- Used it with all its geo-spatial features for OpenStreetMap
-- Automated replicating to another database with slony before 9.0 came
-out with log shipping
-- Automated replication and fail-over with repmgrd
-- Had lots of fun automating pgbouncer with consul as a HA write
-endpoint
-- Housekeeping functions took some getting used to
+### MSSQL
+- Enjoyed a love/hate relationship with Azure SQL server as a core database
+- Love the depth of the query planner and the insight into live statistics
+- Hate the fact that indexes are built around fragmentable structures and 
+inline statistics calculation is enabled by default
 
 ## --store=*NOSQL*
 
-### MongoDB is a challenge to wrap my head around. Schema-less?!
+### MongoDB is webscale... Schema-less?!
 - Attended admin training courses to understand: schema-less can also be
 a curse since it is incredibly challenging when defining a scalable,
 future proof indexing concept
@@ -119,6 +132,7 @@ think Linux is the best for servers
 - zookeeper
 - rabbitmq
 - activemq
+- nats (with jetstream)
 - consul (for service discovery)
 - All in clusters running at least 3 nodes
 - Very interesting (i.E. challenging) to scale
@@ -145,8 +159,13 @@ infrastructure
 ### Terraform
 - Compiled modules to simplify complex deployments
 - Wrote a provider to interface with OpenNebula
-- Used to deploy all aspects of Cabify's non application layer 
+- Used to deploy all aspects of Cabify and Fonoa's non application layer 
 infrastructure
+
+### Kubernetes
+- flux - to run large and small infrastructure
+- ArgoCD - and the app-of-app-of-apps
+- Helm - the joys and the follies
 
 ## --monitor
 (No observability, means not knowing anything)
@@ -225,6 +244,18 @@ complex
 - As a plugin for new test-kitchen deployments
 - Played around a bit LXD
 
+## --script
+
+### Bash
+- wrote extensive bash scripts for automation with unit tests (bats)
+- found out that bash has its limits :)
+
+### Golang
+- Enjoy writing and maintaining a go backend for a research project
+- Wrote [gobench](https://github.com/tnosaj/gobench) to benchmark schemas in 
+mysql and postgres for high throughput
+- Learned about api design the hardway while using grpc
+
 ## --think
 
 ### imho
@@ -234,7 +265,19 @@ complex
 
 # HISTORY
 
-## Cabify (05.2018 - .)
+## Fonoa (01.2022 - .)
+
+### Database/Site Reliability Engineer
+- Automate, run, manage all database related technologies:
+MySQL/Postgres (Google Cloudsql), MsSQL (Azure)
+- Ensured that monitoring and alerting was availible with end2end testing
+- Build exporter for missing [SQL server](https://github.com/tnosaj/mssql_exporter/) metrics
+- Create runbooks for oncall team members with little database context to ensure service continuity
+- Write design guides to help developers understand their schema and engine decisions 
+- Fully remote
+
+
+## Cabify (05.2018 - 11.2021)
 
 ### Database Reliability Engineer
 - Tasked with automating, managing, running all database related technologies:
@@ -260,6 +303,7 @@ omnibus package
 HA stack
 - Build a back-end agnostic solution for secrets in chef
 - Use chef to automate all-the-things
+- Fully remote
 
 ## Runtastic GmbH (04.2012 - 03.2017)
 

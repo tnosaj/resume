@@ -31,17 +31,28 @@
 <h1 id="name">NAME</h1>
 <p>jason tevnan - cloud and database-wrangler with a penchant for automation and sous vide cooking</p>
 <h1 id="synopsis">SYNOPSIS</h1>
-<p>jason [--store SQL|NOSQL] [--administrate] [--automate] [--monitor] [--virtualize] [--containerize] [--think]</p>
+<p>jason [--store SQL|NOSQL] [--administrate] [--automate] [--monitor] [--virtualize] [--containerize] [--script] [--think]</p>
 <h1 id="description">DESCRIPTION</h1>
-<p>I have been around and seen some stuff, but am the first to admit it when i am out of my league. I pursue issues with a passion (as any good DBA would) and don’t settle for it just works. I love learning new technologies and wrapping my head around new paradigms, ideally while enjoying dark-roast coffee at my standing desk.</p>
+<p>I worked in a variety of environments, sometimes outside of my comfort-zone where I have been forced to learn and run technologies in production at the same time. I pursue issues with a passion (as any good DBRE/SRE would) and don’t settle for it just works. I love learning new technologies and wrapping my head around new paradigms, ideally while enjoying dark-roast coffee at my standing desk.</p>
 <h1 id="options">OPTIONS</h1>
 <h2 id="storesql">--store=<em>SQL</em></h2>
 <h3 id="mysql-is-my-true-love.">MySQL is my true love.</h3>
 <ul>
-<li>Verifying database workloads, identifying slow queries, tuning innodb settings, while providing an HA database can be a lot of fun</li>
+<li>Verifying database workloads, identifying schema bottlenecks, tuning innodb settings, while providing an HA database can be a lot of fun</li>
 <li>Scaled Runtastic’s core database starting at 1M users to 99M users and the ability to handle 100k QPS</li>
-<li>Partitioning a table or verifying the innodb engine status, I love it</li>
-<li>Experience finding and debugging DBaaS provider based issues (CloudSQL)</li>
+<li>Migrated 90+ microservice DBs from Cloudsql to RDS with 7 seconds of downtime</li>
+<li>Partitioning a table or verifying the innodb engine status are things i consider fun</li>
+<li>Experience finding and debugging DBaaS provider based issues while gathering all the metrics possible</li>
+</ul>
+<h3 id="postgresql-is-different-but-fun">PostgreSQL is different but fun</h3>
+<ul>
+<li>Used it with all its geo-spatial features for OpenStreetMap</li>
+<li>Automated replicating to another database with slony before 9.0 came out with log shipping</li>
+<li>Automated replication and fail-over with repmgrd/patroni</li>
+<li>Had lots of fun automating pgbouncer with consul as a HA write endpoint</li>
+<li>Have come to embrace MVCC and the pros and cons that it brings</li>
+<li>Have solidified my understanding of the pg_% tables and the plethora of information they provide</li>
+<li>Love (and sometimes hate) the pg_stat_Statements extension</li>
 </ul>
 <h3 id="oracle-is-what-i-cut-my-teeth-on.">Oracle is what i cut my teeth on.</h3>
 <ul>
@@ -49,16 +60,14 @@
 <li>Learned what a missing index can do, which queries to avoid and how to find the meaning of all those v$ views</li>
 <li>The experience I gathered understanding B-Tree index look-ups, helped me to understand look-ups across all database systems</li>
 </ul>
-<h3 id="postgresql-is-interesting">PostgreSQL is interesting</h3>
+<h3 id="mssql">MSSQL</h3>
 <ul>
-<li>Used it with all its geo-spatial features for OpenStreetMap</li>
-<li>Automated replicating to another database with slony before 9.0 came out with log shipping</li>
-<li>Automated replication and fail-over with repmgrd</li>
-<li>Had lots of fun automating pgbouncer with consul as a HA write endpoint</li>
-<li>Housekeeping functions took some getting used to</li>
+<li>Enjoyed a love/hate relationship with Azure SQL server as a core database</li>
+<li>Love the depth of the query planner and the insight into live statistics</li>
+<li>Hate the fact that indexes are built around fragmentable structures and inline statistics calculation is enabled by default</li>
 </ul>
 <h2 id="storenosql">--store=<em>NOSQL</em></h2>
-<h3 id="mongodb-is-a-challenge-to-wrap-my-head-around.-schema-less">MongoDB is a challenge to wrap my head around. Schema-less?!</h3>
+<h3 id="mongodb-is-webscale...-schema-less">MongoDB is webscale... Schema-less?!</h3>
 <ul>
 <li>Attended admin training courses to understand: schema-less can also be a curse since it is incredibly challenging when defining a scalable, future proof indexing concept</li>
 <li>Enjoy shard key definitions for collections to ensure the fewest scatter-gather queries, Optimizing storage read ahead settings and playing with Wiredtiger cache options</li>
@@ -104,6 +113,7 @@
 <li>zookeeper</li>
 <li>rabbitmq</li>
 <li>activemq</li>
+<li>nats (with jetstream)</li>
 <li>consul (for service discovery)</li>
 <li>All in clusters running at least 3 nodes</li>
 <li>Very interesting (i.E. challenging) to scale</li>
@@ -130,7 +140,13 @@
 <ul>
 <li>Compiled modules to simplify complex deployments</li>
 <li>Wrote a provider to interface with OpenNebula</li>
-<li>Used to deploy all aspects of Cabify's non application layer infrastructure</li>
+<li>Used to deploy all aspects of Cabify and Fonoa's non application layer infrastructure</li>
+</ul>
+<h3 id="kubernetes">Kubernetes</h3>
+<ul>
+<li>flux - to run large and small infrastructure</li>
+<li>ArgoCD - and the app-of-app-of-apps</li>
+<li>Helm - the joys and the follies</li>
 </ul>
 <h2 id="monitor">--monitor</h2>
 <p>(No observability, means not knowing anything)</p>
@@ -195,7 +211,7 @@
 <li>Build typical applications as well as X based, multi-arch, multi-stage ones</li>
 <li>Automated container builds with GitLab CI and BATs</li>
 </ul>
-<h3 id="kubernetes">Kubernetes</h3>
+<h3 id="kubernetes-1">Kubernetes</h3>
 <ul>
 <li>Wrote many manifests for different applications, ranging from banal to complex</li>
 <li>Run my own cluster on RaspberryPis for all my home needs</li>
@@ -211,6 +227,18 @@
 <li>As a plugin for new test-kitchen deployments</li>
 <li>Played around a bit LXD</li>
 </ul>
+<h2 id="script">--script</h2>
+<h3 id="bash">Bash</h3>
+<ul>
+<li>wrote extensive bash scripts for automation with unit tests (bats)</li>
+<li>found out that bash has its limits :)</li>
+</ul>
+<h3 id="golang">Golang</h3>
+<ul>
+<li>Enjoy writing and maintaining a go backend for a research project</li>
+<li>Wrote <a href="https://github.com/tnosaj/gobench">gobench</a> to benchmark schemas in mysql and postgres for high throughput</li>
+<li>Learned about api design the hardway while using grpc</li>
+</ul>
 <h2 id="think">--think</h2>
 <h3 id="imho">imho</h3>
 <ul>
@@ -219,7 +247,17 @@
 <li>tmux &gt; screen</li>
 </ul>
 <h1 id="history">HISTORY</h1>
-<h2 id="cabify-05.2018---.">Cabify (05.2018 - .)</h2>
+<h2 id="fonoa-01.2022---.">Fonoa (01.2022 - .)</h2>
+<h3 id="databasesite-reliability-engineer">Database/Site Reliability Engineer</h3>
+<ul>
+<li>Automate, run, manage all database related technologies: MySQL/Postgres (Google Cloudsql), MsSQL (Azure)</li>
+<li>Ensured that monitoring and alerting was availible with end2end testing</li>
+<li>Build exporter for missing <a href="https://github.com/tnosaj/mssql_exporter/">SQL server</a> metrics</li>
+<li>Create runbooks for oncall team members with little database context to ensure service continuity</li>
+<li>Write design guides to help developers understand their schema and engine decisions</li>
+<li>Fully remote</li>
+</ul>
+<h2 id="cabify-05.2018---11.2021">Cabify (05.2018 - 11.2021)</h2>
 <h3 id="database-reliability-engineer">Database Reliability Engineer</h3>
 <ul>
 <li>Tasked with automating, managing, running all database related technologies: MySQL (Google Cloudsql), Couchdb (Cloudant), Redis, Memcached, Elasticsearch</li>
@@ -239,6 +277,7 @@
 <li>Strove to fully automate environments from terraform to multi-tiered HA stack</li>
 <li>Build a back-end agnostic solution for secrets in chef</li>
 <li>Use chef to automate all-the-things</li>
+<li>Fully remote</li>
 </ul>
 <h2 id="runtastic-gmbh-04.2012---03.2017">Runtastic GmbH (04.2012 - 03.2017)</h2>
 <h3 id="infrastructure-architect">Infrastructure Architect</h3>
