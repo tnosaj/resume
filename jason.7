@@ -25,28 +25,51 @@ automation and sous vide cooking
 .SH SYNOPSIS
 .PP
 jason [--store SQL|NOSQL] [--administrate] [--automate] [--monitor]
-[--virtualize] [--containerize] [--think]
+[--virtualize] [--containerize] [--script] [--think]
 .SH DESCRIPTION
 .PP
-I have been around and seen some stuff, but am the first to admit it
-when i am out of my league.
-I pursue issues with a passion (as any good DBA would) and don\[cq]t
-settle for it just works.
+I worked in a variety of environments, sometimes outside of my
+comfort-zone where I have been forced to learn and run technologies in
+production at the same time.
+I pursue issues with a passion (as any good DBRE/SRE would) and
+don\[cq]t settle for it just works.
 I love learning new technologies and wrapping my head around new
 paradigms, ideally while enjoying dark-roast coffee at my standing desk.
 .SH OPTIONS
 .SS --store=\f[I]SQL\f[R]
 .SS MySQL is my true love.
 .IP \[bu] 2
-Verifying database workloads, identifying slow queries, tuning innodb
-settings, while providing an HA database can be a lot of fun
+Verifying database workloads, identifying schema bottlenecks, tuning
+innodb settings, while providing an HA database can be a lot of fun
 .IP \[bu] 2
 Scaled Runtastic\[cq]s core database starting at 1M users to 99M users
 and the ability to handle 100k QPS
 .IP \[bu] 2
-Partitioning a table or verifying the innodb engine status, I love it
+Migrated 90+ microservice DBs from Cloudsql to RDS with 7 seconds of
+downtime
 .IP \[bu] 2
-Experience finding and debugging DBaaS provider based issues (CloudSQL)
+Partitioning a table or verifying the innodb engine status are things i
+consider fun
+.IP \[bu] 2
+Experience finding and debugging DBaaS provider based issues while
+gathering all the metrics possible
+.SS PostgreSQL is different but fun
+.IP \[bu] 2
+Used it with all its geo-spatial features for OpenStreetMap
+.IP \[bu] 2
+Automated replicating to another database with slony before 9.0 came out
+with log shipping
+.IP \[bu] 2
+Automated replication and fail-over with repmgrd/patroni
+.IP \[bu] 2
+Had lots of fun automating pgbouncer with consul as a HA write endpoint
+.IP \[bu] 2
+Have come to embrace MVCC and the pros and cons that it brings
+.IP \[bu] 2
+Have solidified my understanding of the pg_% tables and the plethora of
+information they provide
+.IP \[bu] 2
+Love (and sometimes hate) the pg_stat_Statements extension
 .SS Oracle is what i cut my teeth on.
 .IP \[bu] 2
 Had to learn on highly performant, always-on database systems
@@ -56,20 +79,17 @@ find the meaning of all those v$ views
 .IP \[bu] 2
 The experience I gathered understanding B-Tree index look-ups, helped me
 to understand look-ups across all database systems
-.SS PostgreSQL is interesting
+.SS MSSQL
 .IP \[bu] 2
-Used it with all its geo-spatial features for OpenStreetMap
+Enjoyed a love/hate relationship with Azure SQL server as a core
+database
 .IP \[bu] 2
-Automated replicating to another database with slony before 9.0 came out
-with log shipping
+Love the depth of the query planner and the insight into live statistics
 .IP \[bu] 2
-Automated replication and fail-over with repmgrd
-.IP \[bu] 2
-Had lots of fun automating pgbouncer with consul as a HA write endpoint
-.IP \[bu] 2
-Housekeeping functions took some getting used to
+Hate the fact that indexes are built around fragmentable structures and
+inline statistics calculation is enabled by default
 .SS --store=\f[I]NOSQL\f[R]
-.SS MongoDB is a challenge to wrap my head around. Schema-less?!
+.SS MongoDB is webscale... Schema-less?!
 .IP \[bu] 2
 Attended admin training courses to understand: schema-less can also be a
 curse since it is incredibly challenging when defining a scalable,
@@ -141,6 +161,8 @@ rabbitmq
 .IP \[bu] 2
 activemq
 .IP \[bu] 2
+nats (with jetstream)
+.IP \[bu] 2
 consul (for service discovery)
 .IP \[bu] 2
 All in clusters running at least 3 nodes
@@ -176,8 +198,15 @@ Compiled modules to simplify complex deployments
 .IP \[bu] 2
 Wrote a provider to interface with OpenNebula
 .IP \[bu] 2
-Used to deploy all aspects of Cabify\[aq]s non application layer
-infrastructure
+Used to deploy all aspects of Cabify and Fonoa\[aq]s non application
+layer infrastructure
+.SS Kubernetes
+.IP \[bu] 2
+flux - to run large and small infrastructure
+.IP \[bu] 2
+ArgoCD - and the app-of-app-of-apps
+.IP \[bu] 2
+Helm - the joys and the follies
 .SS --monitor
 .PP
 (No observability, means not knowing anything)
@@ -278,6 +307,20 @@ Integrated with other HashiCorp products (Consul, Hashiui)
 As a plugin for new test-kitchen deployments
 .IP \[bu] 2
 Played around a bit LXD
+.SS --script
+.SS Bash
+.IP \[bu] 2
+wrote extensive bash scripts for automation with unit tests (bats)
+.IP \[bu] 2
+found out that bash has its limits :)
+.SS Golang
+.IP \[bu] 2
+Enjoy writing and maintaining a go backend for a research project
+.IP \[bu] 2
+Wrote gobench (https://github.com/tnosaj/gobench) to benchmark schemas
+in mysql and postgres for high throughput
+.IP \[bu] 2
+Learned about api design the hardway while using grpc
 .SS --think
 .SS imho
 .IP \[bu] 2
@@ -287,7 +330,25 @@ zsh > bash
 .IP \[bu] 2
 tmux > screen
 .SH HISTORY
-.SS Cabify (05.2018 - .)
+.SS Fonoa (01.2022 - .)
+.SS Database/Site Reliability Engineer
+.IP \[bu] 2
+Automate, run, manage all database related technologies: MySQL/Postgres
+(Google Cloudsql), MsSQL (Azure)
+.IP \[bu] 2
+Ensured that monitoring and alerting was availible with end2end testing
+.IP \[bu] 2
+Build exporter for missing SQL
+server (https://github.com/tnosaj/mssql_exporter/) metrics
+.IP \[bu] 2
+Create runbooks for oncall team members with little database context to
+ensure service continuity
+.IP \[bu] 2
+Write design guides to help developers understand their schema and
+engine decisions
+.IP \[bu] 2
+Fully remote
+.SS Cabify (05.2018 - 11.2021)
 .SS Database Reliability Engineer
 .IP \[bu] 2
 Tasked with automating, managing, running all database related
@@ -324,6 +385,8 @@ stack
 Build a back-end agnostic solution for secrets in chef
 .IP \[bu] 2
 Use chef to automate all-the-things
+.IP \[bu] 2
+Fully remote
 .SS Runtastic GmbH (04.2012 - 03.2017)
 .SS Infrastructure Architect
 .IP \[bu] 2
