@@ -49,6 +49,8 @@ the ability to handle 100k QPS
 - Partitioning a table or verifying the innodb engine status are things i consider fun
 - Experience finding and debugging DBaaS provider based issues while gathering
 all the metrics possible
+- Designed and implemented upgrade system for 200+ mysql 5.7 databases to 8.0 with 3 
+seconds of downtime
 
 ### PostgreSQL is different but fun
 - Used it with all its geo-spatial features for OpenStreetMap
@@ -265,7 +267,16 @@ mysql and postgres for high throughput
 
 # HISTORY
 
-## Fonoa (01.2022 - .)
+## Cabify (05.2023 - .)
+
+### Database Reliability Engineer
+- Built automation for seemless mysql 5.7 to 8.0 live migrations
+- Took on a more staff engineering role focused on mentoring and teaching
+- Drove redefinition of higher level engineers role through out the company
+- Re-imagine how database related support is handled with data and chatgpt
+- Fully remote
+
+## Fonoa (01.2022 - 04.2023)
 
 ### Database/Site Reliability Engineer
 - Automate, run, manage all database related technologies:
@@ -275,6 +286,7 @@ MySQL/Postgres (Google Cloudsql), MsSQL (Azure)
 - Create runbooks for oncall team members with little database context to ensure service continuity
 - Write design guides to help developers understand their schema and engine decisions 
 - Fully remote
+- Downsized out of a job :/
 
 
 ## Cabify (05.2018 - 11.2021)
