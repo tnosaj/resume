@@ -59,6 +59,8 @@ out with log shipping
 - Automated replication and fail-over with repmgrd/patroni
 - Had lots of fun automating pgbouncer with consul as a HA write
 endpoint
+- Run a [citus](https://www.citusdata.com/) cluster with approx. 1Pb of data sharded across 
+multiple worker nodes in an HA setup.
 - Have come to embrace MVCC and the pros and cons that it brings
 - Have solidified my understanding of the pg_% tables and the plethora 
 of information they provide
@@ -112,30 +114,32 @@ learned about many of the internal stats and their meanings.
 Kubernetes powered scale-out deployments to load test, while starting
 an ever growing comprehensive cluster administration documentation.
 
+### Elastic/OpenSearch
+- This is a workhorse db for BI and Data analytics
+- When treated correctly you will never need more, when mistreated 
+you will loose your sanity debugging thread locks.
+
 ## --administrate
 (run, play, break, repeate)
 
-### LAMP
-- Traditional stack (e.g. apache2, nginx)
-- Extended web servers (e.g. trinidad, passenger)
-
 ### Loadbalancers
 - Experience debugging performance bottlenecks
-- Setup instances which handle &gt; 80k rpm
+- Setup instances which handle &gt; 200k rps
+- Kubernets ingress setups on multiple clouds as well as baremetal
 - HaProxy, nginx
 
 ### Golden Oldies
 - LOTS of experience with the normal Linux stack (e.g. bind, dhcpd,
 ldap, openvpn, ssh, memcached ...)
-- After &gt; 15 years experience with all aspects of the os, i still
-think Linux is the best for servers
+- Debian, Ubuntu, Redhat, OpenBSD ...
 
 ### Distributed fun
 - zookeeper
 - rabbitmq
 - activemq
+- Kafka
 - nats (with jetstream)
-- consul (for service discovery)
+- consul (for service discovery and locking)
 - All in clusters running at least 3 nodes
 - Very interesting (i.E. challenging) to scale
 
@@ -143,6 +147,13 @@ think Linux is the best for servers
 - Run at scale (gitlab.com) as well as company wide implementations.
 - Experience with the joys and pains of CI implementation and 
 administration.
+- Build CI/CD pipelines for everything from simple push jobs to
+complex end2end testing with vulnerability scanning.
+
+### LAMP
+- Traditional stack (e.g. apache2, nginx)
+- Extended web servers (e.g. trinidad, passenger)
+
 
 ## --automate
 (Automation, testing and auditing is inevitable in today’s world 
@@ -172,6 +183,19 @@ infrastructure
 ## --monitor
 (No observability, means not knowing anything)
 
+### Prometheus
+- Alert-manager, recording-rule, exporter - oh my. Very powerful
+solution with an ever growing community? Count me in.
+- Wrote recording/alerting rules with unit tests
+- Experience with some storage engine and memory shenanigans
+- Visualization with graphana
+- Wrote exporters for databases and weather stations
+
+### Mimir/Loki
+- Built multinode distributed [mimir](https://grafana.com/oss/mimir/) and [loki](https://grafana.com/oss/loki/) setups
+- Separate services to ensure data ingestion
+- Scale backend/rulers to ensure timely rule and log evaluation
+
 ### Nagios3
 - Wrote and deployed numerous checks
 - Running an nrpe based deployment with full automation
@@ -187,16 +211,9 @@ infrastructure
 - Collect all core database metrics from connections to innodb flush
 times
 
-### Prometheus
-- Alert-manager, recording-rule, exporter - oh my. Very powerful
-solution with an ever growing community? Count me in.
-- Wrote recording/alerting rules with unit tests
-- Experience with some storage engine and memory shenanigans
-- Visualization with graphana
-- Wrote exporters for databases and weather stations
 
 ### Cloud Services
-- Very familiar with New Relic, Pingdom, Dynatrace, PagerDuty, VictorOps
+- Very familiar with New Relic, Pingdom, Dynatrace, PagerDuty, VictorOps, GrafanaCloud
 
 ## --virtualize
 (control your destiny - as much as you can)
@@ -218,7 +235,7 @@ imagine)
 - Mainly running older cookbook tests with vbox
 
 ### Cloud Services
-- Automate Google Cloud Platform (GCP) and Azure instance deploys with
+- Automate Google Cloud Platform (GCP), Amazon Web Services (AWS), OVH, Hetzner and Azure clouds with
 terraform
 - Experience the joys (its so easy) and pains (why is the db rebooting?)
 of not controlling your hypervisors
@@ -237,6 +254,7 @@ complex
 - Run my own cluster on RaspberryPis for all my home needs
 - Gave a talk at SFSCon about using Flux to automate manifest deployments:
 [link](https://www.sfscon.it/talks/gitops-with-gitlab-terraform/)
+- Run thalos on bare metal in production
 
 ### Nomad
 - Experience running complex and simple jobs
@@ -267,7 +285,18 @@ mysql and postgres for high throughput
 
 # HISTORY
 
-## Cabify (05.2023 - .)
+## ID5 (05.2024 - .)
+
+### Site Reliability Engineer
+- Evaluate and build a scalable replacement for the current KV storage
+  * Multiple TB of data
+  * SLO of sub MS response times
+- Participate in defining multi DC approach with regional data processing
+- Evaluate replacements for data analytics platform
+- Always build for high throughput (200k rps), low latency (e2e latency < 5ms) 
+solutions for the adtech industry
+
+## Cabify (05.2023 - 05.2024)
 
 ### Database Reliability Engineer
 - Built automation for seemless mysql 5.7 to 8.0 live migrations
