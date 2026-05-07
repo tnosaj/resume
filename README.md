@@ -292,9 +292,14 @@ mysql and postgres for high throughput
   * Multiple TB of data
   * SLO of sub MS response times
 - Participate in defining multi DC approach with regional data processing
+  * Drive the redefinition process for lowest latency edge responses
 - Evaluate replacements for data analytics platform
-- Always build for high throughput (200k rps), low latency (e2e latency < 5ms) 
+- Always build for high throughput (700k rps), low latency (e2e latency < 5ms) 
 solutions for the adtech industry
+- Take over responsibility of techlead
+  * define cultur we aim for
+  * rebuild hiring loop to reflect this shift
+  * promote this to the wider company by "being the change I want to see"
 
 ## Cabify (05.2023 - 05.2024)
 
